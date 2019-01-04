@@ -13,22 +13,19 @@ import java.util.Scanner;
 public class utility 
 {
 static Scanner sc=new Scanner(System.in);
+
 public static int getint()
 {
 	return sc.nextInt();
-	
 }
 public static double getdouble()
 {
 	return sc.nextInt();
 	
 }
-public static int getInt()
+
+public static String getString() 
 {
-	int intvalue=sc.nextInt();
-	return intvalue;
-}
-public static String getString() {
 	String str = sc.nextLine();
 	return str;
 }   
@@ -267,20 +264,28 @@ public static void dayOfWeek(int year,int month,int day)
 		
 		public static int findNumber(int arr[],int start,int end) {
 
-				if((start - end) ==0) {
+				if((start - end) ==0)
+				{
 					return arr[start];
-				}else {	
+				}
+				else 
+				{	
 					int mid = (start +end)/2;
-					if(arr[start]==mid) {
+					if(arr[start]==mid)
+					{
 						System.out.println("Number is "+start);
-					}else {
+					}
+					else 
+					{
 						System.out.println("number present between"+start+" and "+mid+"?");
 					}
 						char answer = utility.getString().charAt(0);
-						if(answer =='n'||answer=='N') {
+						if(answer =='n'||answer=='N')
+						{
 							return findNumber(arr, mid+1, end);
 						}
-						else {
+						else 
+						{
 							return findNumber(arr, start, mid);
 						}
 				}
@@ -309,21 +314,28 @@ public static void dayOfWeek(int year,int month,int day)
 			String line;
 			String words[];
 			String wordIntList[];
-			List<String> ls = new ArrayList<>()
+			List<String> ls = new ArrayList<>();
+			try
 			{
+				
 				FileInputStream fis = new FileInputStream(path);
 				InputStreamReader isr = new InputStreamReader(fis);
 				@SuppressWarnings("resource")
 				BufferedReader br = new BufferedReader(isr);
-				((line=br.readLine())!=null)
+				                                                                                                                              
+					
+				
+				while((line=br.readLine())!=null);
+				
 				{
-					words = line.split(split);
+					words =line.split(split);
 					for(String wordInt:words)
 					{
 						ls.add(wordInt);
 					}
 				}
 			}
+			
 			catch (Exception e)
 			{
 				System.out.println(e);
@@ -355,8 +367,120 @@ public static void dayOfWeek(int year,int month,int day)
 			}
 			return wordsInt;
 		}
-}
+
+	
+
+//binaryconverstion
+public static void toBinary(int n)
+{
+	
+	String result="";
+	String result1="";
+	
+ while(n>=1)
+	{
+	 int r=n%2;
+	 result=result+r;
+	 n=n/2;
+	}
+ for(int i=result.length()-1;i>=0;i--)
+ {
+	 char a=result.charAt(i);
+	 result1=result1+a;
+ }
+ System.out.println("converted binary value is:"+ result1);
+ {
+ int p=0;
+ double sum=0.0;
+
+  String []s=result1.split("");
+  for(int i=s.length-1;i>=0;i--)
+  {
+ 	 double power=Math.pow(2, p);
+ 	 int k=Integer.parseInt(s[i]);
+ 	 sum=sum+(power*k);
+ 	 p++;
+  }
+  System.out.println(sum);
+ 	}
+ }
+
+//nibble the binary number
+public static void toBinary1()
+{
+	System.out.println("enter decimal number");
+	int number =utility.getint();
+	int temp = number;
+	int rem;
+	String result = "" ;
+	int decimal = 0;
+	while(number>=1)
+	{
+		rem = number%2;
+		result = rem+result;
+		number = number/2;
+	}
+	result = 0+result;
+	//System.out.println(result);
+	String nibble1 = result.substring(0,4);
+	//System.out.println(nibble1);
+	String nibble2 = result.substring(4);
+	//System.out.println(nibble2);
+	String newBinary = nibble2.concat(nibble1);
+	//System.out.println(newBinary);
+	int index = 0;
+	int sum = 0;
+	for(int i=newBinary.length()-1;i>=0;i--)
+	{
+		char j = newBinary.charAt(index);
+		index++;
+		int num = Character.getNumericValue(j);
+		sum = (int) (num*Math.pow(2, i)+sum);
 		
+	}
+	System.out.println(sum);
+}
+	
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
 		
 		
 		
