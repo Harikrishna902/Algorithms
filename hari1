@@ -1,0 +1,7 @@
+
+stock name="mobile";
+stock price=45000;
+no of shares=20;
+share price=34456567;
+
+total=453567776
